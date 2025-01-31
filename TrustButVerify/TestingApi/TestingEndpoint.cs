@@ -6,9 +6,9 @@ using Newtonsoft.Json.Linq;
 
 namespace TrustButVerify.TestingAPI
 {
-    public class TestingApiClass : ITestingApiClass
+    public class TestingEndpoint : ITestingEndpoint
     {
-        public async Task<RestResponse> TestAPIUrl(RequestBody requestBody)
+        public async Task<RestResponse> TestAPIEndpoint(RequestBody requestBody)
         {
             RestClient client = CreateRestClient(requestBody);
             RestRequest restRequest = CreateRestRequest(requestBody);

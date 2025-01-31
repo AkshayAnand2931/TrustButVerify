@@ -10,18 +10,18 @@ namespace TrustButVerify.Controllers
     public class TestingController : ControllerBase
     {
         private readonly ILogger<TestingController> _logger;
-        private readonly TestingApiClass _testingAPI;
+        private readonly TestingEndpoint _testingAPI;
 
-        public TestingController(ILogger<TestingController> logger, ITestingApiClass testingAPI)
+        public TestingController(ILogger<TestingController> logger, ITestingEndpoint testingAPI)
         {
             _logger = logger;
-            _testingAPI = (TestingApiClass)testingAPI;
+            _testingAPI = (TestingEndpoint)testingAPI;
         }
 
         [HttpPost()]
         public async Task<string?> TestEndpoint([FromBody]RequestBody requestBody)
         {
-            RestResponse restResponse = await _testingAPI.TestAPIUrl(requestBody);
+            RestResponse restResponse = await _testingAPI.TestAPIEndpoint(requestBody);
             return restResponse.Content;
         }
     }
